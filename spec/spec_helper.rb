@@ -15,9 +15,11 @@ require './spec/features/web_helpers.rb'
 Capybara.app = Bookmark
 
 RSpec.configure do |config|
-    # DataMapper.setup(:default, 'postgres://localhost/bookmark_test')
-    # DataMapper.finalize
-    # Link.auto_upgrade!
+  # DataMapper.setup(:default, ENV['RACK_ENV'] || 'postgress://localhost/bookmark_managerm')
+  # #DataMapper.setup(:default, 'postgres://localhost/bookmark_test')
+  # DataMapper.finalize
+  # Link.auto_upgrade!
+
 
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
