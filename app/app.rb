@@ -1,4 +1,4 @@
-# ENV['RACK_ENV'] ||= 'development'
+ENV['RACK_ENV'] ||= 'development'
 # Bookmark Manager Web App
 require 'sinatra/base'
 require './models/link'
@@ -6,7 +6,7 @@ require './models/link'
 # configure :development do
 #   ENV['RACK_ENV'] = 'development'
 # end
-# 
+#
 # configure :production do
 #   ENV['RACK_ENV'] = 'production'
 # end

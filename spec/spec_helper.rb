@@ -16,22 +16,19 @@ Capybara.app = Bookmark
 
 RSpec.configure do |config|
   require 'data_mapper'
-  #DataMapper.setup(:default, ENV[''] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}") # this suggested by heroku setup
-
-
-  DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
-  DataMapper.finalize
-  Link.auto_upgrade!
-
+  # DataMapper.setup(:default, ENV['postgres://localhost/bookmark_manager_test'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}") # this suggested by heroku setup
 
     config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:transaction)
-    end
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-    config.around(:each) do |eg|
-      DatabaseCleaner.cleaning do
-        eg.run
-      end
-    end
+ config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+ config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
 end
