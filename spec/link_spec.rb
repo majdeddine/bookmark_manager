@@ -1,5 +1,3 @@
-require './models/link'
-
 describe Link do
 
   let(:link) { described_class.new }

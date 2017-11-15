@@ -1,5 +1,3 @@
-require './models/tag'
-
 describe Tag do
 
   let(:tag) { described_class.new }

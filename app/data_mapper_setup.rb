@@ -1,15 +1,9 @@
-# Tag class for Bookmark Manager
 require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
-
-class Tag
-  include DataMapper::Resource
-
-  property :id, Serial
-  property :name, String
-end
+require_relative 'models/tag'
+require_relative 'models/link'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-Tag.auto_upgrade!
+DataMapper.auto_upgrade!

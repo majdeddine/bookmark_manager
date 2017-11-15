@@ -1,17 +1,7 @@
  ENV['RACK_ENV'] ||= 'development'
 # Bookmark Manager Web App
 require 'sinatra/base'
-require './models/link'
-require './models/link'
-
-# configure :development do
-#   ENV['RACK_ENV'] = 'development'
-# end
-#
-# configure :production do
-#   ENV['RACK_ENV'] = 'production'
-# end
-
+require_relative 'data_mapper_setup'
 class Bookmark < Sinatra::Base
 
   get '/' do
@@ -32,7 +22,7 @@ class Bookmark < Sinatra::Base
     link_name = params[:link_name]
     link_url = params[:link_url]
     $link_tag = params[:link_tag]
-    Link.create(name: link_name, url: link_url)
+     Link.create(name: link_name, url: link_url)
     redirect '/links'
 
   end
