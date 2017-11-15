@@ -9,18 +9,19 @@
   end
 
       scenario 'link is added' do
-        visit '/create_link'
-        fill_in :link_name, with: 'Google'
-        fill_in :link_url, with: 'www.google.co.uk'
-        click_button 'Add Link'
+        add_a_link
         expect(page).to have_content('Google')
       end
 
       scenario 'user can tag a link' do
-        visit '/create_link'
-        fill_in :link_tag, with: 'books'
-        click_button 'Add Link'
+        add_link_with_tag
         link = Link.first
-        expect(link.tags.map(&:name)).to have_content('books')
+        expect(link.tags.map(&:name)).to have_content('bubbles')
+      end
+
+      scenario 'access all the links with the same tag' do
+        add_link_with_tag
+        visit('/tags/bubbles')
+        expect(page).to have_content('www.google.co.uk')
       end
 end
