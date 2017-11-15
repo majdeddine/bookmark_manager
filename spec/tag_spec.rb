@@ -9,6 +9,7 @@ describe Tag do
   end
 
     it 'should add a tag' do
-      expect{ Tag.create(name: 'B') }.to change { Tag.all.length }.by(1)
+      @link = Link.create(name: 'link_name', url: 'link_url')
+      expect{ Tag.create(name: 'B', link_id: @link.id) }.to change { Tag.all.length }.by(1)
     end
 end

@@ -6,4 +6,5 @@ class Link
   property :id, Serial
   property :name, String
   property :url, String
+   has n, :tags
 end
