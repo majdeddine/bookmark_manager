@@ -3,13 +3,13 @@
 require 'sinatra/base'
 require './models/link'
 
-configure :development do
-  ENV['RACK_ENV'] = 'development'
-end
-
-configure :production do
-  ENV['RACK_ENV'] = 'production'
-end
+# configure :development do
+#   ENV['RACK_ENV'] = 'development'
+# end
+# 
+# configure :production do
+#   ENV['RACK_ENV'] = 'production'
+# end
 
 class Bookmark < Sinatra::Base
 
