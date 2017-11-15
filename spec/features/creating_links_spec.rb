@@ -15,4 +15,11 @@
         click_button 'Add Link'
         expect(page).to have_content('Google')
       end
+
+      scenario 'user can tag a link' do
+        visit '/create_link'
+        fill_in :link_tag, with: 'books'
+        click_button 'Add Link'
+        expect(page).to have_content('books')
+      end
 end
