@@ -13,6 +13,6 @@ def add_link_with_tag
   visit '/create_link'
   fill_in :link_name, with: 'Google'
   fill_in :link_url, with: 'www.google.co.uk'
-  fill_in :link_tag, with: 'bubbles'
+  fill_in :tag, with: 'bubbles'
   click_button 'Add Link'
 end

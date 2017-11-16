@@ -1,5 +1,3 @@
-
- # Capybara.app = Bookmark
   feature 'creating links' do
     scenario 'user can input a new link' do
       visit '/create_link'
