@@ -1,5 +1,5 @@
 <ul>
-  <% @links.each do |link| %>
-  <li> <%= link.url  if link.tags.map(&:name).include?('bubbles')%> </li>
+  <% @links.select do |link| %>
+  <li> <%= link.url%> </li>
   <% end %>
 </ul>
