@@ -13,6 +13,7 @@ gem 'rubocop'
 gem 'sinatra'
 gem 'thin'
 gem 'rake'
+gem 'bcrypt'
 
 group :production do
   gem 'pg'
