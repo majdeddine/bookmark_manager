@@ -16,3 +16,12 @@ def add_link_with_tag
   fill_in :tag, with: 'bubbles'
   click_button 'Add Link'
 end
+
+def add_link_with_tags
+  visit '/create_link'
+  fill_in :link_name, with: 'Google'
+  fill_in :link_url, with: 'www.google.co.uk'
+  fill_in :tag, with: 'bubbles'
+  fill_in :tag1, with: 'books'
+  click_button 'Add Link'
+end
