@@ -1,5 +1,5 @@
 <ul>
-  <% @links.select do |link| %>
+  <% @links.each do |link| %>
   <li> <%= link.url%> </li>
   <% end %>
 </ul>
