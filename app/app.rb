@@ -5,15 +5,16 @@ require_relative 'data_mapper_setup'
 class Bookmark < Sinatra::Base
 
   get '/' do
+    erb :index
+  end
+
+  post '/create_link' do
+    $user_email = params[:email]
     redirect '/create_link'
   end
 
-  get '/links' do
-    @links = Link.all
-    erb(:links)
-  end
-
   get '/create_link' do
+    @email = $user_email
     erb(:creating_link)
   end
 
@@ -26,6 +27,11 @@ class Bookmark < Sinatra::Base
      link.save
     redirect '/links'
 
+  end
+
+  get '/links' do
+    @links = Link.all
+    erb(:links)
   end
 
   get '/tags/:name' do
